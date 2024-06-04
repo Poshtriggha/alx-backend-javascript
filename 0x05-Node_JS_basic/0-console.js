@@ -1,7 +1,11 @@
 /*
-this is just a function that will display a given message
-*/
+This Functions prints a mesage
+ */
+
+//function displayMessage
 function displayMessage(message) {
-    console.log(message);
-  }
-  module.exports = displayMessage;
+    console.log(message)
+}
+
+//Display
+module.exports = displayMessage;
