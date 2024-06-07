@@ -4,17 +4,17 @@
     "description": "PROJECT TITLE: 0x06-unittests_in_js",
     "main": "index.js",
     "scripts": {
-      "test": "mocha"
+        "test": "mocha"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "devDependencies": {
-      "chai": "^5.1.1",
-      "mocha": "^10.4.0"
+        "chai": "^5.1.1",
+        "mocha": "^10.4.0"
     },
     "dependencies": {
-      "assert": "^2.1.0",
-      "sinon": "^18.0.0"
+        "assert": "^2.1.0",
+        "sinon": "^18.0.0"
     }
-  }
+}
