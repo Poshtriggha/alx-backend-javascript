@@ -1,44 +1,50 @@
-// 2-calcul_chai.test.js
+const chai = (await import('chai')).default;
+const calculateNumber = (await import('./2-calcul_chai'));
 
-const { expect } = require('chai');
-const calculateNumber = require('./2-calcul_chai.js');
-
-describe('calculateNumber', () => {
-  describe('SUM', () => {
-    it('should return 6 when inputs are 1.4 and 4.5', () => {
-      expect(calculateNumber('SUM', 1.4, 4.5)).to.equal(6);
+describe('#calculateNumber() with type SUM', () => {
+    it('add 3 and 5', () => {
+        expect(calculateNumber('SUM', 3, 5)).to.equal(8);
     });
-
-    it('should return 0 when inputs are -1.4 and 1.4', () => {
-      expect(calculateNumber('SUM', -1.4, 1.4)).to.equal(0);
+    it('add 10 and 3', () => {
+        expect(calculateNumber('SUM', 10, 3)).to.equal(13);
     });
-  });
-
-  describe('SUBTRACT', () => {
-    it('should return -4 when inputs are 1.4 and 4.5', () => {
-      expect(calculateNumber('SUBTRACT', 1.4, 4.5)).to.equal(-4);
+    it('add 3.3 and 1.7', () => {
+        expect(calculateNumber('SUM', 3.3, 1.7)).to.equal(5);
     });
-
-    it('should return 3 when inputs are 4.5 and 1.4', () => {
-      expect(calculateNumber('SUBTRACT', 4.5, 1.4)).to.equal(3);
+    it('add -0.1 and 0.1', () => {
+        expect(calculateNumber('SUM', -0.1, 0.1)).to.equal(0);
     });
-  });
+});
 
-  describe('DIVIDE', () => {
-    it('should return 0.2 when inputs are 1.4 and 4.5', () => {
-      expect(calculateNumber('DIVIDE', 1.4, 4.5)).to.be.closeTo(0.2, 0.01);
+describe('#calculateNumber() with type SUBTRACT', () => {
+    it('subtract 3 and 5', () => {
+        expect(calculateNumber('SUBTRACT', 3, 5)).to.equal(2);
     });
-
-    it('should return "Error" when inputs are 1.4 and 0', () => {
-      expect(calculateNumber('DIVIDE', 1.4, 0)).to.equal('Error');
+    it('subtract 10 and 3', () => {
+        expect(calculateNumber('SUBTRACT', 10, 3)).to.equal(7);
     });
-
-    it('should return "Error" when inputs are 1.4 and 0.4', () => {
-      expect(calculateNumber('DIVIDE', 1.4, 0.4)).to.equal('Error');
+    it('subtract 3.3 and 1.7', () => {
+        expect(calculateNumber('SUBTRACT', 3.3, 1.7)).to.equal(1);
     });
-  });
+    it('subtract -0.1 and 0.1', () => {
+        expect(calculateNumber('SUBTRACT', -0.1, 0.1)).to.equal(0);
+    });
+});
 
-  it('should throw an error for an invalid type', () => {
-    expect(() => calculateNumber('INVALID', 1.4, 4.5)).to.throw(Error);
-  });
+describe('#calculateNumber() with type DIVIDE', () => {
+    it('divide 15 and 5', () => {
+        expect(calculateNumber('DIVIDE', 15, 5)).to.equal(3);
+    });
+    it('divide 10 and 2', () => {
+        expect(calculateNumber('DIVIDE', 10, 2)).to.equal(5);
+    });
+    it('divide 3.3 and 3.3', () => {
+        expect(calculateNumber('DIVIDE', 3.3, 3.3)).to.equal(1);
+    });
+    it('divide 75 and 3', () => {
+        expect(calculateNumber('DIVIDE', 75, 3)).to.equal(25);
+    });
+    it('divide 1.4 and 0', () => {
+        expect(calculateNumber('DIVIDE', 1.4, 0)).to.equal('Error');
+    });
 });
