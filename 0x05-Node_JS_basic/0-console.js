@@ -1,11 +1,5 @@
-/*
-This Functions prints a mesage
- */
-
-//function displayMessage
-function displayMessage(message) {
-    console.log(message)
-}
-
-//Display
-module.exports = displayMessage;
+function displayMessage(data) {
+    console.log(data);
+  }
+  
+  module.exports = displayMessage;
